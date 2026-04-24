@@ -22,7 +22,6 @@ import androidx.compose.material3.NavigationBar
 import androidx.compose.material3.NavigationBarItem
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBar
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
@@ -43,7 +42,7 @@ fun MainScreen(navController: NavController? = null) {
     val pagerState = rememberPagerState(pageCount = { titles.size })
     val scope = rememberCoroutineScope()
     var curIndex by remember { mutableIntStateOf(0) }
-    var curTitle by remember { mutableStateOf("") }
+    var curTitle by remember { mutableStateOf(titles[curIndex]) }
 
     Scaffold( topBar = { InitAppBar(curTitle) }, bottomBar = {
         InitTabBar(titles) { index ->
